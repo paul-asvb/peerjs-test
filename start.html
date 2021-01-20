@@ -27,13 +27,23 @@
     </p>
 
     <script>
+
         var peer = new Peer();
 
-        //var conn = peer.connect('my-id-javosjanojf');
+        console.log(peer)
 
-        peer.on('open', function (id) {
+        var conn = peer.connect('my-id-javosjanojf');
+
+        conn.send('Hello!');
+
+        conn.on('open', function (id) {
             document.getElementById("peerid").innerHTML = id
         });
+
+
+        setInterval(() => {
+            conn.send('Hello!');
+        }, 1000)
 
 
 
